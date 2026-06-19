@@ -1,10 +1,10 @@
 ---
 import Navigation from "../components/Navigation.astro";
 import Footer from "../components/Footer.astro";
-import { siteConfig, homeContent } from "../config/content.ts";
+import { siteConfig } from "../config/content.ts";
 ---
 
-<html lang="en">
+<html lang="en" class="dark">
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -12,186 +12,361 @@ import { siteConfig, homeContent } from "../config/content.ts";
     <meta name="generator" content={Astro.generator} />
     <title>{siteConfig.title}</title>
     <meta name="description" content={siteConfig.description} />
+    
+    <!-- Inline script to ensure dark mode is active by default for index.astro -->
     <script is:inline>
       (function () {
-        const savedTheme = localStorage.getItem("theme") || "dark";
-        const prefersDark = window.matchMedia(
-          "(prefers-color-scheme: dark)"
-        ).matches;
-        const initialTheme =
-          savedTheme === "system"
-            ? prefersDark
-              ? "dark"
-              : "light"
-            : savedTheme;
-
-        if (initialTheme === "dark") {
-          document.documentElement.classList.add("dark");
-        } else {
-          document.documentElement.classList.remove("dark");
-        }
+        document.documentElement.classList.add("dark");
       })();
     </script>
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        window
-          .matchMedia("(prefers-color-scheme: dark)")
-          .addEventListener("change", (e) => {
-            if (localStorage.getItem("theme") === "system") {
-              if (e.matches) {
-                document.documentElement.classList.add("dark");
-              } else {
-                document.documentElement.classList.remove("dark");
-              }
-            }
-          });
-      });
-    </script>
+
     <style>
       body {
         margin: 0;
-        font-family:
-          system-ui,
-          -apple-system,
-          sans-serif;
+        background-color: #030014;
+        color: #f5f5f7;
+        font-family: 'Outfit', 'Inter', system-ui, -apple-system, sans-serif;
       }
 
-      @keyframes float {
-        0% {
-          transform: scale(1.2);
-        }
-        50% {
-          transform: scale(1.3);
-        }
-        100% {
-          transform: scale(1.2);
-        }
+      /* Custom glowing background elements */
+      .glow-orb-purple {
+        background: radial-gradient(circle, rgba(147, 51, 234, 0.15) 0%, transparent 70%);
+      }
+      .glow-orb-teal {
+        background: radial-gradient(circle, rgba(20, 184, 166, 0.1) 0%, transparent 70%);
       }
 
-      .dot-hexagon-light {
-        background-image: radial-gradient(
-            circle,
-            #80808045 1px,
-            transparent 1px
-          ),
-          radial-gradient(circle, #80808045 1px, transparent 1px);
-        background-size: 24px 41.57px;
-        background-position:
-          0 0,
-          12px 20.78px;
+      /* Custom animations */
+      @keyframes pulse-slow {
+        0%, 100% { opacity: 0.8; transform: scale(1); }
+        50% { opacity: 1; transform: scale(1.05); }
       }
-
-      .dot-hexagon-dark {
-        background-image: radial-gradient(
-            circle,
-            #ffffff35 1px,
-            transparent 1px
-          ),
-          radial-gradient(circle, #ffffff35 1px, transparent 1px);
-        background-size: 24px 41.57px;
-        background-position:
-          0 0,
-          12px 20.78px;
+      .animate-pulse-slow {
+        animation: pulse-slow 8s infinite ease-in-out;
       }
     </style>
   </head>
-  <body
-    class="min-h-screen flex flex-col bg-white dark:bg-neutral-900 transition-colors duration-300"
-  >
-    <div class="relative flex-grow flex flex-col">
-      <div class="absolute inset-0 overflow-hidden pointer-events-none">
-        <div class="absolute inset-0 dot-hexagon-light dark:dot-hexagon-dark">
-        </div>
-        <div
-          class="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_50%,transparent_0%,rgba(255,255,255,0.5)_60%,rgba(255,255,255,0.9)_85%,white_100%)] dark:bg-[radial-gradient(ellipse_80%_80%_at_50%_50%,transparent_0%,rgba(23,23,23,0.5)_60%,rgba(23,23,23,0.9)_85%,rgb(23,23,23)_100%)]"
-        >
-        </div>
-        <div
-          class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[1200px] w-[1200px] rounded-full bg-neutral-400 opacity-10 blur-[100px] dark:bg-neutral-600 dark:opacity-15"
-          style="max-height: 100vh; max-width: 100vw;"
-        >
-        </div>
-      </div>
+  <body class="min-h-screen flex flex-col bg-[#030014] text-neutral-100 transition-colors duration-300 relative overflow-x-hidden">
+    
+    <!-- Background glowing visual anchors -->
+    <div class="absolute inset-0 overflow-hidden pointer-events-none z-0">
+      <div class="absolute -top-40 -left-40 w-[600px] h-[600px] rounded-full glow-orb-purple animate-pulse-slow"></div>
+      <div class="absolute top-[40%] -right-40 w-[700px] h-[700px] rounded-full glow-orb-teal animate-pulse-slow" style="animation-delay: 2s;"></div>
+      <div class="absolute -bottom-40 left-1/3 w-[600px] h-[600px] rounded-full glow-orb-purple animate-pulse-slow" style="animation-delay: 4s;"></div>
+      
+      <!-- Subtle dot grid pattern overlay -->
+      <div class="absolute inset-0 opacity-[0.03] bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:24px_24px]"></div>
+    </div>
 
-      <Navigation />
-      <div class="relative flex flex-col flex-1 pt-4 min-h-0">
-        <main class="flex-grow flex flex-col min-h-0">
-          <div class="flex-1 flex items-center justify-center min-h-0">
-            <div
-              class="flex flex-row items-center justify-between w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 gap-12"
-            >
-              <div class="w-[45%] text-left">
-                <h1
-                  class="text-3xl font-bold tracking-tight text-neutral-900 dark:text-neutral-100 sm:text-4xl"
-                >
-                  {homeContent.title}
-                </h1>
-                <p
-                  class="mt-3 text-lg leading-7 text-neutral-600 dark:text-neutral-400"
-                >
-                  {homeContent.description}
-                </p>
-                <div class="flex flex-row gap-4 mt-4">
-                  <a
-                    class="group inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-neutral-900 rounded-lg hover:bg-neutral-800 dark:bg-neutral-100 dark:text-neutral-900 dark:hover:bg-neutral-200 transition-all duration-300 hover:scale-105 cursor-pointer"
-                    href={homeContent.buttons.about.href}
-                    >{homeContent.buttons.about.text}<svg
-                      class="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      ><path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2.5"
-                        d="M13 7l5 5m0 0l-5 5m5-5H6"></path></svg
-                    ></a
-                  >
-                  <a
-                    class="group inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-neutral-900 bg-white border border-neutral-300 rounded-lg hover:bg-neutral-50 dark:bg-neutral-800 dark:text-neutral-100 dark:border-neutral-600 dark:hover:bg-neutral-700 transition-all duration-300 hover:scale-105 cursor-pointer"
-                    href={homeContent.buttons.posts.href}
-                    >{homeContent.buttons.posts.text}<svg
-                      class="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      ><path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2.5"
-                        d="M13 7l5 5m0 0l-5 5m5-5H6"></path></svg
-                    ></a
-                  >
+    <!-- Main Navigation -->
+    <Navigation />
+
+    <!-- Main Content Container -->
+    <main class="flex-grow relative z-10">
+      
+      <!-- HERO SECTION -->
+      <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16 text-center">
+        <!-- Floating badge -->
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-purple-500/20 bg-purple-500/5 text-purple-300 text-xs font-semibold uppercase tracking-wider mb-6 backdrop-blur-md">
+          <span class="w-2 h-2 rounded-full bg-purple-500 animate-ping"></span>
+          Next-Gen Software Development Studio
+        </div>
+        
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-white via-neutral-200 to-purple-400 max-w-4xl mx-auto leading-tight sm:leading-none">
+          We Build High-Performance, <br class="hidden sm:inline" /> Zero-Maintenance Micro-SaaS Platforms
+        </h1>
+        
+        <p class="mt-6 text-lg sm:text-xl text-neutral-400 max-w-2xl mx-auto font-light leading-relaxed">
+          Crafting elegant web experiences, automated bots, and seamless Stripe integrations. High-speed tech engineered for growth.
+        </p>
+
+        <!-- CTA Buttons -->
+        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mt-10">
+          <a
+            href="https://clarift.etsy.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="w-full sm:w-auto px-8 py-4 rounded-xl text-sm font-semibold text-white bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 transition-all duration-300 transform hover:-translate-y-0.5 hover:shadow-[0_0_20px_rgba(147,51,234,0.4)] text-center cursor-pointer"
+          >
+            Explore Shop
+          </a>
+          <a
+            href="https://www.behance.net/clarift"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="w-full sm:w-auto px-8 py-4 rounded-xl text-sm font-semibold text-neutral-300 bg-neutral-900 border border-neutral-800 hover:bg-neutral-800 hover:border-neutral-700 transition-all duration-300 transform hover:-translate-y-0.5 text-center cursor-pointer"
+          >
+            Our Portfolio
+          </a>
+        </div>
+      </section>
+
+      <!-- METRICS WIDGET (Showcase Grid) -->
+      <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          
+          <!-- Card 1 -->
+          <div class="relative group overflow-hidden rounded-2xl border border-neutral-800/80 bg-neutral-900/40 p-8 backdrop-blur-md transition-all duration-300 hover:border-purple-500/30">
+            <div class="absolute inset-0 bg-gradient-to-b from-purple-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <div class="relative z-10">
+              <div class="flex items-center justify-between mb-4">
+                <span class="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-500">100/100</span>
+                <div class="w-8 h-8 rounded-lg bg-purple-500/10 flex items-center justify-center text-purple-400">
+                  <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  </svg>
                 </div>
               </div>
-              <div
-                class="relative w-[45%] flex items-center justify-center bg-transparent overflow-hidden z-20"
-              >
-                <div
-                  class="relative overflow-hidden"
-                  style="width: min(700px, 45vw); height: min(700px, 70vh); max-width: 100%; max-height: 70vh;"
-                >
-                  <img
-                    src={homeContent.images.light}
-                    alt="Tech Background"
-                    class="w-full h-full object-contain animate-[float_15s_ease-in-out_infinite] hover:scale-125 transition-transform duration-300 opacity-90 dark:hidden"
-                    style="max-width: 100%; max-height: 100%;"
-                  />
+              <h3 class="text-lg font-bold text-white mb-2">Lighthouse Speed</h3>
+              <p class="text-sm text-neutral-400 leading-relaxed">
+                HTML-first Astro speed, mobile optimized. Generates ultra-fast loading, which maximizes organic Google SEO positioning and drives mobile conversion rates.
+              </p>
+            </div>
+          </div>
 
-                  <img
-                    src={homeContent.images.dark}
-                    alt="Tech Background Dark"
-                    class="w-full h-full object-contain animate-[float_15s_ease-in-out_infinite] hover:scale-125 transition-transform duration-300 opacity-90 hidden dark:block"
-                    style="max-width: 100%; max-height: 100%;"
-                  />
+          <!-- Card 2 -->
+          <div class="relative group overflow-hidden rounded-2xl border border-neutral-800/80 bg-neutral-900/40 p-8 backdrop-blur-md transition-all duration-300 hover:border-teal-500/30">
+            <div class="absolute inset-0 bg-gradient-to-b from-teal-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <div class="relative z-10">
+              <div class="flex items-center justify-between mb-4">
+                <span class="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-emerald-500">$0/Month</span>
+                <div class="w-8 h-8 rounded-lg bg-teal-500/10 flex items-center justify-center text-teal-400">
+                  <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+              </div>
+              <h3 class="text-lg font-bold text-white mb-2">Server Costs</h3>
+              <p class="text-sm text-neutral-400 leading-relaxed">
+                Serverless architecture, no database overhead. Hosted entirely on global edge networks. Keep 100% of your earnings with zero fixed monthly maintenance invoices.
+              </p>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="relative group overflow-hidden rounded-2xl border border-neutral-800/80 bg-neutral-900/40 p-8 backdrop-blur-md transition-all duration-300 hover:border-indigo-500/30">
+            <div class="absolute inset-0 bg-gradient-to-b from-indigo-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <div class="relative z-10">
+              <div class="flex items-center justify-between mb-4">
+                <span class="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-500">Turnkey</span>
+                <div class="w-8 h-8 rounded-lg bg-indigo-500/10 flex items-center justify-center text-indigo-400">
+                  <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                  </svg>
+                </div>
+              </div>
+              <h3 class="text-lg font-bold text-white mb-2">Ready Delivery</h3>
+              <p class="text-sm text-neutral-400 leading-relaxed">
+                Fully tested, secure, and ready to launch on Day 1. Handed over with solid documentation, clean code configurations, and ready Stripe webhook pipelines.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- FLAGSHIP PRODUCT FEATURE (DateMix 2.0 Showcase) -->
+      <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+            Featured Asset Launch
+          </h2>
+          <p class="mt-4 text-neutral-400 max-w-xl mx-auto font-light">
+            An in-depth look at our flagship interactive platform, demonstrating our tech stack capabilities.
+          </p>
+        </div>
+
+        <!-- DateMix 2.0 Card -->
+        <div class="relative overflow-hidden rounded-3xl border border-neutral-800 bg-neutral-950/80 p-8 sm:p-12 backdrop-blur-md">
+          <!-- Ambient glow backing the card -->
+          <div class="absolute -right-20 -top-20 w-80 h-80 rounded-full bg-purple-500/10 blur-[60px] pointer-events-none"></div>
+          <div class="absolute -left-20 -bottom-20 w-80 h-80 rounded-full bg-teal-500/10 blur-[60px] pointer-events-none"></div>
+
+          <div class="flex flex-col lg:flex-row items-center gap-12 relative z-10">
+            <!-- Left Side Text Content -->
+            <div class="flex-1 text-left">
+              <div class="flex flex-wrap gap-2 mb-6">
+                <span class="px-3 py-1 rounded-full text-xs font-semibold bg-purple-500/10 text-purple-300 border border-purple-500/20">Stripe Checkout</span>
+                <span class="px-3 py-1 rounded-full text-xs font-semibold bg-teal-500/10 text-teal-300 border border-teal-500/20">PHP/MySQL</span>
+                <span class="px-3 py-1 rounded-full text-xs font-semibold bg-indigo-500/10 text-indigo-300 border border-indigo-500/20">Low-OpEx</span>
+                <span class="px-3 py-1 rounded-full text-xs font-semibold bg-pink-500/10 text-pink-300 border border-pink-500/20">Admin Panel</span>
+              </div>
+
+              <h3 class="text-3xl font-bold text-white mb-4">DateMix 2.0</h3>
+              
+              <p class="text-neutral-300 leading-relaxed mb-6 font-light">
+                A state-of-the-art social dating portal designed to beat the initial user growth barrier. Fully automated, fast, and secure.
+              </p>
+
+              <!-- Feature Breakdown List -->
+              <div class="space-y-4 mb-8">
+                <div class="flex items-start gap-3">
+                  <div class="w-6 h-6 rounded-full bg-purple-500/10 flex items-center justify-center text-purple-400 mt-1 flex-shrink-0">
+                    <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold text-white">30 Pre-Seeded Automated Demo Bots</h4>
+                    <p class="text-sm text-neutral-400">Solves the cold start problem instantly on launch. The community is active and interactive from Day 1.</p>
+                  </div>
+                </div>
+
+                <div class="flex items-start gap-3">
+                  <div class="w-6 h-6 rounded-full bg-teal-500/10 flex items-center justify-center text-teal-400 mt-1 flex-shrink-0">
+                    <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold text-white">Gemini AI Chatbot Companion</h4>
+                    <p class="text-sm text-neutral-400">Conversational AI profiles act as icebreakers, engaging users in real-time chat companionships.</p>
+                  </div>
+                </div>
+              </div>
+
+              <a
+                href="https://www.behance.net/clarift"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 text-sm font-semibold text-teal-400 hover:text-teal-300 transition-colors"
+              >
+                Read Technical Case Study
+                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+              </a>
+            </div>
+
+            <!-- Right Side Visual / UI Mockup -->
+            <div class="flex-1 w-full flex justify-center">
+              <div class="relative w-full max-w-[400px] aspect-[4/3] rounded-2xl bg-neutral-900 border border-neutral-800 p-6 flex flex-col justify-between overflow-hidden shadow-2xl group hover:border-purple-500/20 transition-all duration-300">
+                <!-- Glowing effect -->
+                <div class="absolute inset-0 bg-gradient-to-tr from-purple-600/5 to-teal-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                
+                <div class="relative z-10 flex items-center justify-between border-b border-neutral-800 pb-4">
+                  <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-purple-500 to-indigo-500 flex items-center justify-center font-bold text-white text-sm">
+                      D2
+                    </div>
+                    <div>
+                      <h4 class="font-bold text-white text-sm">DateMix Chat</h4>
+                      <p class="text-xs text-teal-400">Online • AI Companion</p>
+                    </div>
+                  </div>
+                  <span class="px-2 py-0.5 rounded bg-purple-500/20 text-purple-300 text-[10px] font-semibold">Gemini API</span>
+                </div>
+
+                <!-- Chat simulation -->
+                <div class="my-6 space-y-3 relative z-10 flex-grow text-xs text-left">
+                  <div class="flex flex-col items-start max-w-[85%] bg-neutral-800 text-neutral-300 rounded-lg p-2.5">
+                    <span class="font-bold text-purple-400 mb-0.5">Sophia (Bot #14)</span>
+                    Hey there! Read your bio, that's awesome. Ready to find something fun today?
+                  </div>
+                  <div class="flex flex-col items-end self-end ml-auto max-w-[85%] bg-purple-600 text-white rounded-lg p-2.5">
+                    Totally! How is it going?
+                  </div>
+                </div>
+
+                <!-- Action Button -->
+                <div class="relative z-10 border-t border-neutral-800 pt-4 flex gap-2">
+                  <span class="flex-grow bg-neutral-950 border border-neutral-800 rounded-lg py-2 px-3 text-xs text-neutral-500 text-left">Type a message...</span>
+                  <button class="bg-gradient-to-r from-purple-600 to-teal-500 hover:from-purple-500 hover:to-teal-400 text-white rounded-lg px-4 text-xs font-semibold transition-all duration-300">Send</button>
                 </div>
               </div>
             </div>
           </div>
-        </main>
+        </div>
+      </section>
 
-        <Footer />
-      </div>
-    </div>
+      <!-- READY-TO-BUILD FRAMEWORKS -->
+      <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+            Ready-to-Build Frameworks
+          </h2>
+          <p class="mt-4 text-neutral-400 max-w-xl mx-auto font-light">
+            Leverage pre-engineered blueprints to launch your custom Micro-SaaS project in record time.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          
+          <!-- Tool 1: BioPilot -->
+          <div class="flex flex-col justify-between rounded-2xl border border-neutral-800/80 bg-neutral-950/40 p-8 backdrop-blur-md transition-all duration-300 hover:border-purple-500/20 group text-left">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-purple-500/10 flex items-center justify-center text-purple-400 mb-6 group-hover:scale-110 transition-transform">
+                <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
+                </svg>
+              </div>
+              <h3 class="text-xl font-bold text-white mb-2">BioPilot</h3>
+              <p class="text-sm text-neutral-400 leading-relaxed font-light mb-6">
+                Privacy-first, super light link-in-bio hub. Zero analytics tracking, blazing fast load times under 100ms, fully customizable.
+              </p>
+            </div>
+            <span class="text-xs font-semibold text-purple-400 tracking-wider uppercase text-left">Link-in-Bio Blueprint</span>
+          </div>
+
+          <!-- Tool 2: ScopeGuard -->
+          <div class="flex flex-col justify-between rounded-2xl border border-neutral-800/80 bg-neutral-950/40 p-8 backdrop-blur-md transition-all duration-300 hover:border-teal-500/20 group text-left">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-teal-500/10 flex items-center justify-center text-teal-400 mb-6 group-hover:scale-110 transition-transform">
+                <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 113.536 0V21h2v-2.243a4.992 4.992 0 003.536 0V21h2v-2.243z" />
+                </svg>
+              </div>
+              <h3 class="text-xl font-bold text-white mb-2">ScopeGuard</h3>
+              <p class="text-sm text-neutral-400 leading-relaxed font-light mb-6">
+                AI-driven project scope creep analyzer. Integrates Gemini API to parse work agreements and highlight hidden risks.
+              </p>
+            </div>
+            <span class="text-xs font-semibold text-teal-400 tracking-wider uppercase text-left">AI Analysis Blueprint</span>
+          </div>
+
+          <!-- Tool 3: PricePilot -->
+          <div class="flex flex-col justify-between rounded-2xl border border-neutral-800/80 bg-neutral-950/40 p-8 backdrop-blur-md transition-all duration-300 hover:border-indigo-500/20 group text-left">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-indigo-500/10 flex items-center justify-center text-indigo-400 mb-6 group-hover:scale-110 transition-transform">
+                <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                </svg>
+              </div>
+              <h3 class="text-xl font-bold text-white mb-2">PricePilot</h3>
+              <p class="text-sm text-neutral-400 leading-relaxed font-light mb-6">
+                A/B pricing page tester. Connects natively with Stripe products to alternate tiers dynamically and record checkout conversions.
+              </p>
+            </div>
+            <span class="text-xs font-semibold text-indigo-400 tracking-wider uppercase text-left">A/B Testing Blueprint</span>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- CALL TO ACTION & CONTACT -->
+      <section class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center relative">
+        <!-- Accent light source -->
+        <div class="absolute inset-0 m-auto w-64 h-64 rounded-full bg-gradient-to-tr from-purple-600/10 to-teal-500/10 blur-[80px] pointer-events-none"></div>
+
+        <div class="relative z-10 border border-neutral-800/80 bg-neutral-950/40 rounded-3xl p-12 backdrop-blur-md">
+          <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-white mb-4">
+            Partner with Clarift
+          </h2>
+          <p class="text-neutral-400 max-w-xl mx-auto leading-relaxed font-light mb-10">
+            Whether you want to acquire an existing asset, integrate premium payments, or build an interactive MVP, we are here.
+          </p>
+          <a
+            href="mailto:clarift@proton.me"
+            class="inline-flex items-center justify-center px-8 py-4 rounded-xl text-sm font-semibold text-white bg-gradient-to-r from-purple-600 via-indigo-600 to-teal-500 hover:from-purple-500 hover:via-indigo-500 hover:to-teal-400 transition-all duration-300 transform hover:scale-105 hover:shadow-[0_0_30px_rgba(99,102,241,0.5)] cursor-pointer"
+          >
+            Get in Touch
+          </a>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Footer -->
+    <Footer />
   </body>
 </html>

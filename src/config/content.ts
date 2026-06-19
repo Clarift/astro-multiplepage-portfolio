@@ -5,7 +5,7 @@ export const siteConfig = {
   description: "Professional portfolio of Clarift development studio, specializing in clean code, database design, PHP, Astro, Node.js, and Stripe integrations.",
   social: {
     github: "https://github.com/Clarift",
-    linkedin: "https://linkedin.com/in/adriankabat",
+    linkedin: "https://www.linkedin.com/in/adriankabat/",
     email: "mailto:clarift@proton.me",
   },
 };
