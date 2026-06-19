@@ -1,11 +1,11 @@
 export const siteConfig = {
-  name: "Adrian Kabat",
-  title: "Adrian Kabat | Full-Stack Developer & Clarift Founder",
-  description: "Professional portfolio of Adrian Kabat, full-stack programmer specializing in clean code, database design, PHP, Astro, Node.js, and Stripe integrations.",
+  name: "Clarift",
+  title: "Clarift | High-Performance Software Development Studio",
+  description: "Professional portfolio of Clarift development studio, specializing in clean code, database design, PHP, Astro, Node.js, and Stripe integrations.",
   social: {
     github: "https://github.com/Clarift",
     linkedin: "https://linkedin.com/in/adriankabat",
-    email: "mailto:contact@clarift.com",
+    email: "mailto:clarift@proton.me",
   },
 };
 
@@ -82,10 +82,10 @@ export const aboutContent = {
   connect: {
     title: "Let's Connect",
     description:
-      "Feel free to reach out if you want to collaborate or discuss a project. You can find me on social media or send an",
+      "Feel free to reach out if you want to collaborate or discuss a project. You can find me on social media or send an email directly to",
     email: {
-      text: "email",
-      href: "mailto:contact@clarift.com",
+      text: "clarift@proton.me",
+      href: "mailto:clarift@proton.me",
     },
   },
 };
