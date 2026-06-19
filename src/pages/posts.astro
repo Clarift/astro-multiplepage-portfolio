@@ -85,104 +85,76 @@ const postsData = JSON.stringify(allPosts);
           postsContainer.innerHTML = postsToShow
             .map(
               (post) => `
-            <a href="${post.href}">
-              <div
-                class="relative border border-transparent border-dashed cursor-pointer p-7 group rounded-2xl"
-              >
-                <div
-                  class="absolute inset-0 z-20 w-full h-full duration-300 ease-out bg-white dark:bg-neutral-950 border border-dashed rounded-2xl border-neutral-300 dark:border-neutral-700 group-hover:-translate-x-1 group-hover:-translate-y-1"
-                >
-                  <div
-                    class="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:24px_24px] dark:bg-[radial-gradient(#404040_1px,transparent_1px)] opacity-50"
-                  >
-                  </div>
-                </div>
-                <div
-                  class="absolute inset-0 z-10 w-full h-full duration-300 ease-out border border-dashed rounded-2xl border-neutral-300 dark:border-neutral-700 group-hover:translate-x-1 group-hover:translate-y-1"
-                >
-                </div>
-                <div
-                  class="relative z-30 duration-300 ease-out group-hover:-translate-x-1 group-hover:-translate-y-1"
-                >
-                  <div class="flex gap-8">
-                    <div class="flex-[2]">
-                      <h2 class="relative mb-4 pr-6">
-                        <span
-                          class="text-lg font-bold leading-tight tracking-tight sm:text-xl lg:text-2xl text-neutral-900 dark:text-neutral-100"
-                        >
-                          ${post.title}
-                        </span>
-                        <svg
-                          class="absolute top-[0.2rem] sm:top-[0.25rem] lg:top-[0.3rem] right-0 group-hover:translate-x-0 flex-shrink-0 -translate-x-1 w-4 h-4 stroke-current transition-all ease-in-out duration-200 transform opacity-0 group-hover:opacity-100 text-neutral-600 dark:text-neutral-400"
-                          viewBox="0 0 13 15"
+            <a href="${post.href}" class="group block">
+              <div class="relative flex flex-col md:flex-row gap-6 p-6 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md hover:border-purple-500/30 hover:bg-white/10 hover:shadow-[0_0_20px_rgba(147,51,234,0.15)] transition-all duration-300 hover:scale-[1.01] overflow-hidden text-left">
+                <div class="flex-[2] flex flex-col justify-between">
+                  <div>
+                    <h2 class="relative mb-3 pr-6 text-xl sm:text-2xl font-bold tracking-tight text-white group-hover:text-purple-300 transition-colors">
+                      ${post.title}
+                      <svg
+                        class="absolute top-[0.2rem] right-0 w-4 h-4 stroke-current transition-all ease-in-out duration-200 transform translate-x-1 opacity-0 group-hover:opacity-100 group-hover:translate-x-0 text-purple-400"
+                        viewBox="0 0 13 15"
+                      >
+                        <g
+                          stroke="none"
+                          stroke-width="1"
+                          fill="none"
+                          fill-rule="evenodd"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
                         >
                           <g
-                            stroke="none"
-                            stroke-width="1"
-                            fill="none"
-                            fill-rule="evenodd"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
+                            transform="translate(0.666667, 2.333333)"
+                            stroke="currentColor"
+                            stroke-width="2.4"
                           >
-                            <g
-                              transform="translate(0.666667, 2.333333)"
-                              stroke="currentColor"
-                              stroke-width="2.4"
-                            >
-                              <g>
-                                <polyline
-                                  class="transition-all duration-200 ease-out opacity-0 delay-0 group-hover:opacity-100"
-                                  points="5.33333333 0 10.8333333 5.5 5.33333333 11"
-                                ></polyline>
-                                <line
-                                  class="transition-all duration-200 ease-out transform -translate-x-1 opacity-0 group-hover:translate-x-0 group-hover:opacity-100 group-hover:ml-0"
-                                  x1="10.8333333"
-                                  y1="5.5"
-                                  x2="0.833333333"
-                                  y2="5.16666667"
-                                ></line>
-                              </g>
+                            <g>
+                              <polyline
+                                class="transition-all duration-200 ease-out opacity-0 delay-0 group-hover:opacity-100"
+                                points="5.33333333 0 10.8333333 5.5 5.33333333 11"
+                              ></polyline>
+                              <line
+                                class="transition-all duration-200 ease-out transform -translate-x-1 opacity-0 group-hover:translate-x-0 group-hover:opacity-100 group-hover:ml-0"
+                                x1="10.8333333"
+                                y1="5.5"
+                                x2="0.833333333"
+                                y2="5.16666667"
+                              ></line>
                             </g>
                           </g>
-                        </svg>
-                      </h2>
-                      <p
-                        class="text-base text-neutral-600 dark:text-neutral-400 mb-3"
-                      >
-                        <span>${post.description}</span>
-                      </p>
-                      <div
-                        class="flex items-center gap-4 text-sm font-medium text-neutral-600 dark:text-neutral-400"
-                      >
-                        <span>Posted on ${post.date}</span>
-                        <span class="flex items-center">
-                          <svg
-                            class="w-4 h-4 mr-1"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                          >
-                            <path
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                              stroke-width="2"
-                              d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-                            ></path>
-                          </svg>
-                          ${post.readTime}
-                        </span>
-                      </div>
-                    </div>
-                    <div
-                      class="relative flex-1 h-48 rounded-xl overflow-hidden flex-shrink-0"
-                    >
-                      <img
-                        src="${post.image}"
-                        alt="${post.title}"
-                        class="w-full h-full object-cover"
-                      />
-                    </div>
+                        </g>
+                      </svg>
+                    </h2>
+                    <p class="text-sm sm:text-base text-neutral-300 font-light mb-4">
+                      ${post.description}
+                    </p>
                   </div>
+                  <div class="flex items-center gap-4 text-xs font-semibold text-neutral-400">
+                    <span>Posted on ${post.date}</span>
+                    <span class="flex items-center gap-1">
+                      <svg
+                        class="w-3.5 h-3.5"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                        ></path>
+                      </svg>
+                      ${post.readTime}
+                    </span>
+                  </div>
+                </div>
+                <div class="relative flex-1 h-44 rounded-xl overflow-hidden border border-white/5 flex-shrink-0">
+                  <img
+                    src="${post.image}"
+                    alt="${post.title}"
+                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
                 </div>
               </div>
             </a>
@@ -210,7 +182,7 @@ const postsData = JSON.stringify(allPosts);
             paginationHTML += `
               <a
                 href="${getPageUrl(currentPage - 1)}"
-                class="px-3 py-1 text-sm font-medium text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors"
+                class="px-3 py-1 text-sm font-semibold text-neutral-300 hover:text-white transition-colors"
               >
                 Previous
               </a>
@@ -218,7 +190,7 @@ const postsData = JSON.stringify(allPosts);
           } else {
             paginationHTML += `
               <span
-                class="px-3 py-1 text-sm font-medium text-neutral-600 dark:text-neutral-400 opacity-50 cursor-not-allowed"
+                class="px-3 py-1 text-sm font-semibold text-neutral-600 opacity-40 cursor-not-allowed"
               >
                 Previous
               </span>
@@ -231,10 +203,10 @@ const postsData = JSON.stringify(allPosts);
               <a
                 href="${getPageUrl(i)}"
                 aria-current="${isCurrentPage ? "page" : undefined}"
-                class="w-8 h-8 flex items-center justify-center rounded-full text-sm font-medium transition-colors ${
+                class="w-8 h-8 flex items-center justify-center rounded-full text-sm font-semibold transition-all duration-300 ${
                   isCurrentPage
-                    ? "bg-neutral-900 text-white dark:bg-neutral-100 dark:text-neutral-900"
-                    : "text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100"
+                    ? "bg-purple-600 text-white shadow-[0_0_15px_rgba(147,51,234,0.4)]"
+                    : "text-neutral-400 hover:text-white hover:bg-white/5"
                 }"
               >
                 ${i}
@@ -246,7 +218,7 @@ const postsData = JSON.stringify(allPosts);
             paginationHTML += `
               <a
                 href="${getPageUrl(currentPage + 1)}"
-                class="px-3 py-1 text-sm font-medium text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors"
+                class="px-3 py-1 text-sm font-semibold text-neutral-300 hover:text-white transition-colors"
               >
                 Next
               </a>
@@ -254,7 +226,7 @@ const postsData = JSON.stringify(allPosts);
           } else {
             paginationHTML += `
               <span
-                class="px-3 py-1 text-sm font-medium text-neutral-600 dark:text-neutral-400 opacity-50 cursor-not-allowed"
+                class="px-3 py-1 text-sm font-semibold text-neutral-600 opacity-40 cursor-not-allowed"
               >
                 Next
               </span>
@@ -322,55 +294,38 @@ const postsData = JSON.stringify(allPosts);
         flex-shrink: 0;
       }
 
-      .dot-hexagon-light {
-        background-image: radial-gradient(
-            circle,
-            #80808045 1px,
-            transparent 1px
-          ),
-          radial-gradient(circle, #80808045 1px, transparent 1px);
-        background-size: 24px 41.57px;
-        background-position:
-          0 0,
-          12px 20.78px;
+      /* Custom glowing background elements */
+      .glow-orb-purple {
+        background: radial-gradient(circle, rgba(147, 51, 234, 0.15) 0%, transparent 70%);
+      }
+      .glow-orb-teal {
+        background: radial-gradient(circle, rgba(20, 184, 166, 0.1) 0%, transparent 70%);
       }
 
-      .dot-hexagon-dark {
-        background-image: radial-gradient(
-            circle,
-            #ffffff35 1px,
-            transparent 1px
-          ),
-          radial-gradient(circle, #ffffff35 1px, transparent 1px);
-        background-size: 24px 41.57px;
-        background-position:
-          0 0,
-          12px 20.78px;
+      /* Custom animations */
+      @keyframes pulse-slow {
+        0%, 100% { opacity: 0.8; transform: scale(1); }
+        50% { opacity: 1; transform: scale(1.05); }
+      }
+      .animate-pulse-slow {
+        animation: pulse-slow 8s infinite ease-in-out;
       }
     </style>
   </head>
-  <body class="bg-white dark:bg-neutral-900 transition-colors duration-300">
-    <div class="fixed inset-0 z-0 pointer-events-none">
-      <div
-        class="absolute inset-0 -z-10 dot-hexagon-light dark:dot-hexagon-dark"
-      >
-      </div>
-      <div
-        class="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_50%,transparent_0%,rgba(255,255,255,0.5)_60%,rgba(255,255,255,0.9)_85%,white_100%)] dark:bg-[radial-gradient(ellipse_80%_80%_at_50%_50%,transparent_0%,rgba(23,23,23,0.5)_60%,rgba(23,23,23,0.9)_85%,rgb(23,23,23)_100%)] -z-10"
-      >
-      </div>
-      <div
-        class="absolute left-0 right-0 top-0 -z-10 m-auto h-[1200px] w-[1200px] rounded-full bg-neutral-400 opacity-10 blur-[100px]"
-      >
-      </div>
+  <body class="bg-[#030014] text-neutral-100 transition-colors duration-300 relative overflow-x-hidden">
+    <div class="absolute inset-0 overflow-hidden pointer-events-none z-0">
+      <div class="absolute -top-40 -left-40 w-[600px] h-[600px] rounded-full glow-orb-purple animate-pulse-slow"></div>
+      <div class="absolute top-[40%] -right-40 w-[700px] h-[700px] rounded-full glow-orb-teal animate-pulse-slow" style="animation-delay: 2s;"></div>
+      <!-- Subtle dot grid pattern overlay -->
+      <div class="absolute inset-0 opacity-[0.03] bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:24px_24px]"></div>
     </div>
 
     <main class="flex-1 relative z-10">
       <Navigation />
-      <section class="relative z-20 w-[896px] mx-auto mt-24">
+      <section class="relative z-20 w-[896px] mx-auto mt-24 mb-12 px-6">
         <div class="flex justify-between items-center mb-12">
           <h2
-            class="text-2xl font-bold tracking-tight text-neutral-900 dark:text-neutral-100 sm:text-3xl lg:text-4xl"
+            class="text-2xl font-bold tracking-tight text-white sm:text-3xl lg:text-4xl"
           >
             Blog Posts
           </h2>
@@ -378,11 +333,11 @@ const postsData = JSON.stringify(allPosts);
 
         <div
           id="posts-container"
-          class="flex flex-col items-stretch w-full gap-8"
+          class="flex flex-col items-stretch w-full gap-8 animate-fade-in"
         >
         </div>
 
-        <div id="pagination-container"></div>
+        <div id="pagination-container" class="mt-12"></div>
       </section>
     </main>
 
