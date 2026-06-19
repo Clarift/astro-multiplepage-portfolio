@@ -1,3 +1,4 @@
+// Force Vercel redeploy
 export const siteConfig = {
   name: "Clarift",
   title: "Clarift | High-Performance Software Development Studio",
