@@ -164,6 +164,18 @@ if (!Content) {
         </header>
 
         {
+          (frontmatter.heroImage || frontmatter.image) && (
+            <div class="relative w-full aspect-[21/9] mb-12 rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
+              <img
+                src={frontmatter.heroImage || frontmatter.image}
+                alt={frontmatter.title}
+                class="w-full h-full object-cover"
+              />
+            </div>
+          )
+        }
+
+        {
           frontmatter.description && (
             <p class="text-lg text-neutral-300 mb-16 text-center font-light leading-relaxed max-w-2xl mx-auto">
               {frontmatter.description}

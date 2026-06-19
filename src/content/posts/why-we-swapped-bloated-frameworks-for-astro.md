@@ -3,7 +3,7 @@ title: "Why We Swapped Bloated Frameworks for Astro: Achieving 100/100 Lighthous
 description: "A look into why page speed is the ultimate ranking factor, and how Astro's Island Architecture keeps mobile conversion rates exceptionally high."
 pubDate: "2026-06-19"
 author: "Clarift"
-heroImage: "/blog-placeholder-3.jpg"
+heroImage: "/placeholder-seo.jpg"
 ---
 
 Mobile page load speed is no longer just a technical metric—it is a core business metric. Google directly ranks faster pages higher (SEO), and conversion rates drop by 7% for every single second of delay.

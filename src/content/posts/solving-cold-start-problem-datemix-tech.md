@@ -3,7 +3,7 @@ title: "Solving the 'Cold Start' Problem in Social Platforms: The Tech Behind Da
 description: "How we programmed 30 realistic, automated demo bots and integrated Gemini AI to solve the 'empty room' problem from day one of launch."
 pubDate: "2026-06-19"
 author: "Clarift"
-heroImage: "/blog-placeholder-2.jpg"
+heroImage: "/placeholder-datemix.jpg"
 ---
 
 The hardest part of launching any social network or dating platform is the **Cold Start Problem** (also known as the "empty room" effect). When a new user registers, if they find an empty interface with no active members to interact with, they will leave immediately and never return.

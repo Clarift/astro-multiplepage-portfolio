@@ -3,7 +3,7 @@ title: "How We Build SaaS Products with $0/Month in Server Costs"
 description: "Discover how we leverage modern serverless architectures, edge CDNs, and free cloud database tiers to host production-ready SaaS projects with zero fixed running costs."
 pubDate: "2026-06-19"
 author: "Clarift"
-heroImage: "/blog-placeholder-1.jpg"
+heroImage: "/placeholder-hero.jpg"
 ---
 
 For non-technical buyers, hosting fees are one of the biggest fears when taking over a digital product. Traditional setups on AWS or Heroku can easily run up bills of $50 to $200 per month on day one, even with zero active users.
