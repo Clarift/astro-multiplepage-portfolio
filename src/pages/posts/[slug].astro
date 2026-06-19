@@ -164,10 +164,10 @@ if (!Content) {
           <div
             class="flex items-center justify-center gap-4 text-sm text-neutral-600 dark:text-neutral-400 mb-1.5"
           >
-            <time datetime={frontmatter.date || ""}>
+            <time datetime={frontmatter.date || frontmatter.pubDate || ""}>
               {
-                frontmatter.date
-                  ? new Date(frontmatter.date).toLocaleDateString("en-US", {
+                (frontmatter.date || frontmatter.pubDate)
+                  ? new Date(frontmatter.date || frontmatter.pubDate).toLocaleDateString("en-US", {
                       year: "numeric",
                       month: "long",
                       day: "numeric",

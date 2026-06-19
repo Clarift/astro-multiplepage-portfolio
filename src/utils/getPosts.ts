@@ -3,8 +3,10 @@ const allMarkdownModules = import.meta.glob<{
     title?: string;
     description?: string;
     date?: string;
+    pubDate?: string;
     readTime?: string;
     image?: string;
+    heroImage?: string;
     slug?: string;
   };
   default: any;
@@ -49,9 +51,9 @@ export function getAllPosts(): Post[] {
     posts.push({
       title: frontmatter.title || '',
       description: frontmatter.description || '',
-      date: frontmatter.date || '',
+      date: frontmatter.date || frontmatter.pubDate || '',
       readTime: frontmatter.readTime || '5 min read',
-      image: frontmatter.image || '/assets/images/posts/post1.jpg',
+      image: frontmatter.image || frontmatter.heroImage || '/assets/images/posts/post1.jpg',
       slug: slug,
       href: `/posts/${slug}`,
     });
@@ -75,8 +77,10 @@ export function getPostBySlug(slug: string): {
     title?: string;
     description?: string;
     date?: string;
+    pubDate?: string;
     readTime?: string;
     image?: string;
+    heroImage?: string;
     slug?: string;
   };
   Content: any;
