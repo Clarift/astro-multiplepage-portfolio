@@ -1,25 +1,25 @@
 export const siteConfig = {
-  name: "Your Portfolio",
-  title: "Someone's Portfolio",
-  description: "A showcase of my work and thoughts",
+  name: "Adrian Kabat",
+  title: "Adrian Kabat | Full-Stack Developer & Clarift Founder",
+  description: "Professional portfolio of Adrian Kabat, full-stack programmer specializing in clean code, database design, PHP, Astro, Node.js, and Stripe integrations.",
   social: {
-    github: "https://github.com/tomcomtang/astro-multiplepage-portfolio",
-    twitter: "https://x.com/astrodotbuild",
-    email: "mailto:364786053@qq.com",
+    github: "https://github.com/Clarift",
+    linkedin: "https://linkedin.com/in/adriankabat",
+    email: "mailto:contact@clarift.com",
   },
 };
 
 export const homeContent = {
-  title: "Hello, I'm Your Name",
+  title: "Hi, I'm Adrian Kabat",
   description:
-    "A passionate frontend developer with a keen eye for design and a love for creating beautiful, functional web experiences.",
+    "Full-Stack Developer, founder of Clarift, and creator of DateMix. I specialize in clean code, database architecture, PHP, Node.js, Astro, and Stripe integrations.",
   buttons: {
     about: {
-      text: "View About",
+      text: "About Me",
       href: "/about/",
     },
     posts: {
-      text: "Read Posts",
+      text: "Read Blog",
       href: "/posts/",
     },
   },
@@ -31,92 +31,94 @@ export const homeContent = {
 
 export const aboutContent = {
   meta: {
-    title: "About - Your Portfolio",
-    description: "Learn more about my background, skills, and experience",
+    title: "About - Adrian Kabat",
+    description: "Learn more about Adrian Kabat's background, skills, and full-stack development experience.",
   },
   title: "About Me",
   description:
-    "This is where you can introduce yourself or your company. Share your story, mission, and values. Explain what makes you unique and why people should be interested in your work. Keep it concise but engaging.",
+    "I am a passionate Full-Stack Developer and the founder of Clarift, a modern software development studio. I focus on writing clean, maintainable code, designing scalable database architectures, and engineering high-performance web experiences. My work spans backend ecosystems in Node.js and PHP to responsive frontends with Astro, React, and Tailwind CSS. I'm also specialized in building secure payment integrations (Stripe) and integrating AI solutions.",
   skills: [
-    "Next.js",
-    "React",
-    "TypeScript",
-    "Tailwind CSS",
+    "Clean Code",
+    "Database Architecture",
+    "PHP",
     "Node.js",
-    "Docker",
-    "Git",
-    "AWS",
+    "JavaScript",
+    "TypeScript",
+    "Astro",
+    "Stripe Integrations",
+    "HTML & CSS",
+    "Gemini AI",
   ],
   image: {
     src: "/assets/images/about/coder.jpg",
-    alt: "Profile",
+    alt: "Adrian Kabat",
   },
   experience: {
     title: "Experience",
     items: [
       {
-        period: "2022 - Present",
-        position: "Senior Frontend Developer",
-        company: "Tencent Cloud",
+        period: "2023 - Present",
+        position: "Founder & Lead Developer",
+        company: "Clarift (clarift.com)",
         description:
-          "Leading frontend development for EdgeOne platform and templates.",
+          "Established and grew a software studio focused on clean-code web applications, API development, and production-ready Stripe payment integrations.",
       },
       {
-        period: "2020 - 2022",
-        position: "Frontend Developer",
-        company: "Tencent Cloud",
+        period: "2024 - Present",
+        position: "Creator & Lead Architect",
+        company: "DateMix (datemix.pl)",
         description:
-          "Developed and maintained multiple web applications and tools.",
+          "Designed and built a modern, ultra-fast dating portal featuring live simulation bots and an intelligent dating assistant powered by Gemini AI.",
       },
       {
-        period: "2018 - 2020",
-        position: "Junior Developer",
-        company: "Tencent Cloud",
-        description: "Worked on various client projects and internal tools.",
+        period: "2021 - 2023",
+        position: "Full-Stack Developer",
+        company: "Independent Contractor",
+        description:
+          "Built custom databases, API endpoints, and client web applications using PHP, Node.js, and modern front-end technologies.",
       },
     ],
   },
   connect: {
     title: "Let's Connect",
     description:
-      "Feel free to reach out if you want to collaborate or just say hi! You can find us on social media or drop us an",
+      "Feel free to reach out if you want to collaborate or discuss a project. You can find me on social media or send an",
     email: {
       text: "email",
-      href: "mailto:364786053@qq.com",
+      href: "mailto:contact@clarift.com",
     },
   },
 };
 
 export const projectsContent = {
   meta: {
-    title: "Projects - Your Portfolio",
-    description: "Showcase of my best work and projects",
+    title: "Projects - Adrian Kabat",
+    description: "Showcase of Adrian Kabat's software projects and applications",
   },
-  title: "Our Projects",
+  title: "Projects",
   description:
-    "Here you can showcase your best work. Each project should include a brief description, the technologies used, and any notable achievements. This helps potential clients or employers understand your capabilities.",
+    "Here is a selection of my key projects and platforms, illustrating my approach to performance, design, and architecture.",
   projects: [
     {
-      title: "Project One",
+      title: "DateMix",
       description:
-        "A brief description of your first project. Explain what it does and what technologies you used.",
-      image: "/assets/images/projects/project1.jpg",
-      href: "#",
+        "Modern, ultra-fast dating portal featuring built-in demo bots and a custom Gemini AI dating assistant.",
+      image: "/assets/images/projects/datemix.png",
+      href: "https://datemix.pl",
     },
     {
-      title: "Project Two",
+      title: "Clarift",
       description:
-        "Describe your second project here. Highlight the key features and your role in development.",
-      image: "/assets/images/projects/project2.jpg",
-      href: "#",
+        "My development studio, focusing on premium web development, bespoke software architectures, and API design.",
+      image: "/assets/images/projects/clarift.png",
+      href: "https://clarift.com",
     },
     {
-      title: "Project Three",
+      title: "Stripe Payment Workflows",
       description:
-        "Share details about your third project. What problems did it solve? What was the outcome?",
+        "A collection of robust, clean-architecture payment integration systems and subscription modules.",
       image: "/assets/images/projects/project3.png",
-      href: "#",
+      href: "https://github.com/Clarift",
     },
   ],
 };
-
