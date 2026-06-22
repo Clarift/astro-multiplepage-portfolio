@@ -12,52 +12,57 @@ import { siteConfig } from "../config/content";
       >
         {siteConfig.name}
       </a>
-      <div class="flex items-center space-x-6">
-        <a
-          href="/"
-          class="text-neutral-300 hover:text-white transition-colors"
-          >Home</a
-        >
-        <a
-          href="/posts/"
-          class="text-neutral-300 hover:text-white transition-colors"
-          >Posts</a
-        >
-        <a
-          href="/projects/"
-          class="text-neutral-300 hover:text-white transition-colors"
-          >Projects</a
-        >
-        <a
-          href="/about/"
-          class="text-neutral-300 hover:text-white transition-colors"
-          >About</a
-        >
-        <a
-          href="https://clarift.etsy.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="text-neutral-300 hover:text-white transition-colors"
-          >Shop</a
-        >
-        <a
-          href="https://www.behance.net/clarift"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="text-neutral-300 hover:text-white transition-colors animate-pulse-slow"
-          >Portfolio</a
-        >
-        <a
-          href="https://ko-fi.com/clarift"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="inline-flex items-center gap-1.5 px-3 py-1 text-xs font-semibold text-purple-600 border border-purple-500/30 rounded-full hover:bg-purple-50 dark:text-purple-400 dark:border-purple-400/30 dark:hover:bg-purple-950/30 transition-all duration-300 hover:scale-105"
-        >
-          <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path d="M23.881 8.948c-.773-4.085-4.859-4.593-4.859-4.593H.723c-.604 0-.679.798-.679.798s-.082 7.324-.022 11.822c.164 10.124 10.285 9.761 10.285 9.761 7.665-.182 11.298-8.13 11.298-8.13 2.207-2.915 2.228-9.658 2.228-9.658zm-5.65 8.381c-.562.956-2.444 6.1-8.566 6.1-5.187 0-7.61-4.417-7.61-8.049 0-3.631 2.37-7.61 7.61-7.61 5.378 0 7.348 4.316 7.625 6.649.038.318.064.63.078.938h.931c2.146 0 2.296-1.558 2.296-2.261 0-1.895-1.536-2.226-2.296-2.226h-.696V5.441h.696c2.476 0 4.256 1.776 4.256 4.148 0 2.355-1.745 4.181-4.256 4.181h-.896c-.328 2.338-1.597 4.248-3.082 5.097zm-6.262-9.431c-1.428-2.316-4.664-1.325-4.664.832 0 1.258 1.458 2.474 2.895 3.738 1.436-1.264 2.895-2.48 2.895-3.738.001-2.158-3.236-3.15-4.664-.832z"/>
-          </svg>
-          Buy me a coffee
-        </a>
+      <div class="flex items-center space-x-4">
+        <!-- Desktop Links (hidden on mobile, visible on lg screens) -->
+        <div class="hidden lg:flex items-center space-x-6">
+          <a
+            href="/"
+            class="text-neutral-300 hover:text-white transition-colors"
+            >Home</a
+          >
+          <a
+            href="/posts/"
+            class="text-neutral-300 hover:text-white transition-colors"
+            >Posts</a
+          >
+          <a
+            href="/projects/"
+            class="text-neutral-300 hover:text-white transition-colors"
+            >Projects</a
+          >
+          <a
+            href="/about/"
+            class="text-neutral-300 hover:text-white transition-colors"
+            >About</a
+          >
+          <a
+            href="https://clarift.etsy.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-neutral-300 hover:text-white transition-colors"
+            >Shop</a
+          >
+          <a
+            href="https://www.behance.net/clarift"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-neutral-300 hover:text-white transition-colors animate-pulse-slow"
+            >Portfolio</a
+          >
+          <a
+            href="https://ko-fi.com/clarift"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-1.5 px-3 py-1 text-xs font-semibold text-purple-600 border border-purple-500/30 rounded-full hover:bg-purple-50 dark:text-purple-400 dark:border-purple-400/30 dark:hover:bg-purple-950/30 transition-all duration-300 hover:scale-105"
+          >
+            <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M23.881 8.948c-.773-4.085-4.859-4.593-4.859-4.593H.723c-.604 0-.679.798-.679.798s-.082 7.324-.022 11.822c.164 10.124 10.285 9.761 10.285 9.761 7.665-.182 11.298-8.13 11.298-8.13 2.207-2.915 2.228-9.658 2.228-9.658zm-5.65 8.381c-.562.956-2.444 6.1-8.566 6.1-5.187 0-7.61-4.417-7.61-8.049 0-3.631 2.37-7.61 7.61-7.61 5.378 0 7.348 4.316 7.625 6.649.038.318.064.63.078.938h.931c2.146 0 2.296-1.558 2.296-2.261 0-1.895-1.536-2.226-2.296-2.226h-.696V5.441h.696c2.476 0 4.256 1.776 4.256 4.148 0 2.355-1.745 4.181-4.256 4.181h-.896c-.328 2.338-1.597 4.248-3.082 5.097zm-6.262-9.431c-1.428-2.316-4.664-1.325-4.664.832 0 1.258 1.458 2.474 2.895 3.738 1.436-1.264 2.895-2.48 2.895-3.738.001-2.158-3.236-3.15-4.664-.832z"/>
+            </svg>
+            Buy me a coffee
+          </a>
+        </div>
+
+        <!-- Theme Toggle (visible on all screens) -->
         <button
           id="theme-toggle"
           class="p-2 rounded-full text-neutral-600 hover:text-neutral-400 dark:text-neutral-400 dark:hover:text-neutral-200 transition-colors"
@@ -69,7 +74,7 @@ import { siteConfig } from "../config/content";
             viewBox="0 0 20 20"
           >
             <path
-              d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+              d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707-.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
             ></path>
           </svg>
           <svg
@@ -82,6 +87,62 @@ import { siteConfig } from "../config/content";
             ></path>
           </svg>
         </button>
+
+        <!-- Mobile Menu Button (visible on mobile, hidden on lg screens) -->
+        <button
+          id="mobile-menu-button"
+          class="lg:hidden p-2 rounded-lg text-neutral-400 hover:text-white focus:outline-none transition-colors"
+          aria-label="Toggle Menu"
+        >
+          <!-- Hamburger closed icon -->
+          <svg
+            id="menu-icon-closed"
+            class="w-6 h-6 transition-all duration-300 transform"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+          <!-- Hamburger open icon (hidden by default) -->
+          <svg
+            id="menu-icon-open"
+            class="w-6 h-6 hidden transition-all duration-300 transform"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Menu Dropdown Panel (hidden on lg, and initially closed) -->
+  <div
+    id="mobile-menu"
+    class="hidden lg:hidden absolute top-16 left-0 right-0 bg-[#030014]/95 border-b border-neutral-800/80 backdrop-blur-xl transition-all duration-300 ease-in-out origin-top transform scale-y-95 opacity-0 z-40"
+  >
+    <div class="px-4 pt-4 pb-6 space-y-3">
+      <a href="/" class="block px-3 py-2.5 rounded-xl text-base font-medium text-neutral-300 hover:text-white hover:bg-white/5 transition-all duration-200">Home</a>
+      <a href="/posts/" class="block px-3 py-2.5 rounded-xl text-base font-medium text-neutral-300 hover:text-white hover:bg-white/5 transition-all duration-200">Posts</a>
+      <a href="/projects/" class="block px-3 py-2.5 rounded-xl text-base font-medium text-neutral-300 hover:text-white hover:bg-white/5 transition-all duration-200">Projects</a>
+      <a href="/about/" class="block px-3 py-2.5 rounded-xl text-base font-medium text-neutral-300 hover:text-white hover:bg-white/5 transition-all duration-200">About</a>
+      <a href="https://clarift.etsy.com" target="_blank" rel="noopener noreferrer" class="block px-3 py-2.5 rounded-xl text-base font-medium text-neutral-300 hover:text-white hover:bg-white/5 transition-all duration-200">Shop</a>
+      <a href="https://www.behance.net/clarift" target="_blank" rel="noopener noreferrer" class="block px-3 py-2.5 rounded-xl text-base font-medium text-neutral-300 hover:text-white hover:bg-white/5 transition-all duration-200">Portfolio</a>
+      <div class="pt-4 border-t border-neutral-800/60">
+        <a
+          href="https://ko-fi.com/clarift"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex items-center justify-center gap-2 px-4 py-3 text-sm font-semibold text-purple-400 border border-purple-500/30 rounded-xl hover:bg-purple-950/30 transition-all duration-300"
+        >
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M23.881 8.948c-.773-4.085-4.859-4.593-4.859-4.593H.723c-.604 0-.679.798-.679.798s-.082 7.324-.022 11.822c.164 10.124 10.285 9.761 10.285 9.761 7.665-.182 11.298-8.13 11.298-8.13 2.207-2.915 2.228-9.658 2.228-9.658zm-5.65 8.381c-.562.956-2.444 6.1-8.566 6.1-5.187 0-7.61-4.417-7.61-8.049 0-3.631 2.37-7.61 7.61-7.61 5.378 0 7.348 4.316 7.625 6.649.038.318.064.63.078.938h.931c2.146 0 2.296-1.558 2.296-2.261 0-1.895-1.536-2.226-2.296-2.226h-.696V5.441h.696c2.476 0 4.256 1.776 4.256 4.148 0 2.355-1.745 4.181-4.256 4.181h-.896c-.328 2.338-1.597 4.248-3.082 5.097zm-6.262-9.431c-1.428-2.316-4.664-1.325-4.664.832 0 1.258 1.458 2.474 2.895 3.738 1.436-1.264 2.895-2.48 2.895-3.738.001-2.158-3.236-3.15-4.664-.832z"/>
+          </svg>
+          Buy me a coffee
+        </a>
       </div>
     </div>
   </div>
@@ -106,15 +167,63 @@ import { siteConfig } from "../config/content";
     const isDark = document.documentElement.classList.contains("dark");
     updateThemeIcon(isDark);
 
-    themeToggle.addEventListener("click", function () {
-      const isDark = document.documentElement.classList.contains("dark");
-      const newTheme = isDark ? "light" : "dark";
+    if (themeToggle) {
+      themeToggle.addEventListener("click", function () {
+        const isDark = document.documentElement.classList.contains("dark");
+        const newTheme = isDark ? "light" : "dark";
 
-      document.documentElement.classList.toggle("dark");
+        document.documentElement.classList.toggle("dark");
 
-      updateThemeIcon(!isDark);
+        updateThemeIcon(!isDark);
 
-      localStorage.setItem("theme", newTheme);
-    });
+        localStorage.setItem("theme", newTheme);
+      });
+    }
+
+    // Mobile menu toggle logic
+    const menuButton = document.getElementById("mobile-menu-button");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const menuIconClosed = document.getElementById("menu-icon-closed");
+    const menuIconOpen = document.getElementById("menu-icon-open");
+
+    if (menuButton && mobileMenu) {
+      menuButton.addEventListener("click", function () {
+        const isClosed = mobileMenu.classList.contains("hidden");
+        if (isClosed) {
+          // Open menu
+          mobileMenu.classList.remove("hidden");
+          // Small timeout to allow transition to trigger
+          setTimeout(() => {
+            mobileMenu.classList.remove("scale-y-95", "opacity-0");
+            mobileMenu.classList.add("scale-y-100", "opacity-100");
+          }, 10);
+          menuIconClosed.classList.add("hidden");
+          menuIconOpen.classList.remove("hidden");
+        } else {
+          // Close menu
+          mobileMenu.classList.remove("scale-y-100", "opacity-100");
+          mobileMenu.classList.add("scale-y-95", "opacity-0");
+          menuIconOpen.classList.add("hidden");
+          menuIconClosed.classList.remove("hidden");
+          // Wait for transition duration before hiding
+          setTimeout(() => {
+            mobileMenu.classList.add("hidden");
+          }, 300);
+        }
+      });
+
+      // Close menu if window is resized to desktop sizes
+      window.addEventListener("resize", function () {
+        if (window.innerWidth >= 1024) { // 'lg' breakpoint
+          if (!mobileMenu.classList.contains("hidden")) {
+            mobileMenu.classList.add("hidden");
+            mobileMenu.classList.add("scale-y-95", "opacity-0");
+            mobileMenu.classList.remove("scale-y-100", "opacity-100");
+            menuIconOpen.classList.add("hidden");
+            menuIconClosed.classList.remove("hidden");
+          }
+        }
+      });
+    }
   });
 </script>
